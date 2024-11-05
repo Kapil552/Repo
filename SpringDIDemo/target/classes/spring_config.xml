@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+	http://www.springframework.org/schema/tx https://www.springframework.org/tx/spring-tx.xsd">
+	    
+	<bean class="com.springdidemo.impl.MetalDoor" id="md"/>
+	<bean class="com.springdidemo.impl.GlassDoor" id="gd"/>
+	<bean class="com.springdidemo.impl.PlasticDoor" id="pd"/>
+	
+	<!-- constructor injection -->
+	<bean class="com.springdidemo.entity.Car" id="mCar" 
+	scope="prototype">
+		<constructor-arg name="door" ref="md"/>
+	</bean>
+	
+	<!-- constructor injection -->
+	<bean class="com.springdidemo.entity.Car" id="gCar">
+		<constructor-arg name="door" ref="gd"/>
+	</bean>
+	
+	<!-- setter injection -->
+	<bean class="com.springdidemo.entity.Car" id="pCar">
+		<property name="door" ref="pd"/>
+	</bean>
+</beans>

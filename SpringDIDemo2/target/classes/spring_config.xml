@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+    xmlns:context="http://www.springframework.org/schema/context"
+    xmlns:tx="http://www.springframework.org/schema/tx"
+    xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation=" http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-4.0.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+http://www.springframework.org/schema/tx https://www.springframework.org/tx/spring-tx.xsd">
+	    
+	<bean class="com.springdidemo2.entity.ClassRoom" id="clr">
+		<constructor-arg name="studentNames">
+			<list>
+				<value>Amit</value>
+				<value>Sumit</value>
+				<value>Nimit</value>
+				<value>Sumit</value>
+			</list>
+		</constructor-arg>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.ClassRoom2" id="clr2">
+		<property name="studentNames">
+			<array>
+				<value>Nilesh</value>
+				<value>Shailesh</value>
+				<value>Sukesh</value>
+				<value>Mukesh</value>
+			</array>
+		</property>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.PlayList" id="pls">
+		<property name="songs">
+			<set>
+				<value>Shape of you</value>
+				<value>Lean on</value>
+				<value>Des pacito</value>
+				<value>Cheap thrills</value>
+				<value>Des pacito</value>
+			</set>
+		</property>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.Candidate" id="cnd">
+		<constructor-arg>
+			<map>
+				<entry key="12/05/24" value="Cognizant"/>
+				<entry key="03/05/24" value="Wipro"/>
+				<entry key="22/05/24" value="HSBC"/>
+			</map>
+		</constructor-arg>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.DbConnection" 
+	id="con">
+		<property name="dbProperties">
+			<props>
+				<prop key="username">root</prop>
+				<prop key="password">root</prop>
+			</props>
+		</property>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.ABC" id="abc">
+		<constructor-arg name="x" value="23"/>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.PQR" id="pqr">
+		<constructor-arg name="y" value="43"/>
+	</bean>
+	
+	<!-- autowire="constructor | byType | byName" -->
+	<bean class="com.springdidemo2.entity.Container" id="cntr"
+	autowire="byType"/>
+	
+	<!-- 
+	<bean class="com.springdidemo2.entity.ABC" id="ref1">
+		<constructor-arg name="x" value="23"/>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.PQR" id="ref2">
+		<constructor-arg name="y" value="43"/>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.Container" id="cntr"
+	autowire="byName"/>
+	-->
+	 
+	<!-- 
+	<bean class="com.springdidemo2.entity.ABC" id="abc">
+		<constructor-arg name="x" value="23"/>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.PQR" id="pqr">
+		<constructor-arg name="y" value="43"/>
+	</bean>
+	
+	<bean class="com.springdidemo2.entity.Container" id="cntr"
+	autowire="constructor"/>
+	--> 
+</beans>
